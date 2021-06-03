@@ -1,0 +1,3 @@
+class JObject:
+    kind="Object"
+

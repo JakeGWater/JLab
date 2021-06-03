@@ -1,0 +1,13 @@
+.ipy*
+.local
+.bash_history
+/.jupyter
+/cache
+.config
+.cache
+__pycache__
+.vscode
+/jupyter/.jupyter/migrated
+.DS_Store
+*.pyc
+~*
