@@ -1,0 +1,10 @@
+# Commands to start on workspace startup
+image: 
+  file: .gitpod.Dockerfile
+tasks:
+  - init: pip3 install -r requirements.txt
+    command: jupyter notebook ./jupyter
+# Ports to expose on workspace startup
+ports:
+  - port: 8888
+    onOpen: open-preview

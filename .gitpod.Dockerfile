@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM gitpod/workspace-full
 
 LABEL org.opencontainers.image.authors="jake.g.water@gmail.com"
 LABEL version="1.0.0"
@@ -7,10 +7,10 @@ LABEL description="JLab Cinematographic Data Science Tools"
 ENV DEBIAN_FRONTEND="noninteractive"
 ENV TZ=America/Vancouver
 
-RUN apt-get update
-RUN apt-get upgrade -y
+RUN sudo apt-get update
+RUN sudo apt-get upgrade -y
 
-RUN apt-get install -y\
+RUN sudo apt-get install -y\
     build-essential\
     curl\
     ffmpeg\
@@ -39,27 +39,17 @@ RUN apt-get install -y\
 
 # Add the OCIO Configs (downloaded as part of make build)
 # https://github.com/colour-science/OpenColorIO-Configs/releases/tag/v1.2
-ADD cache/ocio /ocio
+run sudo curl -L -o /ocio.zip https://github.com/colour-science/OpenColorIO-Configs/releases/download/v1.2/OpenColorIO-Config-ACES-1.2.zip &&\
+    sudo unzip /ocio.zip -d /ocio &&\
+    sudo rm -f /ocio.zip
 
-# Pre-install all the wonderful python goodies
-RUN pip install\
-    colour-science\
-    jupyter\
-    matplotlib\
-    numpy\
-    openexr\
-    Pillow\
-    scipy
+RUN pip install --upgrade pip
 
-# Jupyter Setup
-RUN useradd --home-dir /jupyter --create-home -G sudo jupyter
-COPY jupyter /jupyter
-USER jupyter
-WORKDIR /jupyter
-EXPOSE 8888/tcp
+# gitpod Setup
+USER gitpod
+WORKDIR /home/gitpod
 
 # Running Jupyter
 ENV LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libgomp.so.1:$LD_PRELOAD
 ENV LD_PRELOAD=/lib/x86_64-linux-gnu/libjemalloc.so.2:$LD_PRELOAD
 ENV OCIO=/ocio/OpenColorIO-Config-ACES-1.2/aces_1.2/config.ocio
-CMD ["jupyter", "notebook"]

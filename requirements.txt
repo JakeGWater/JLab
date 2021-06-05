@@ -1,0 +1,15 @@
+colorio
+colormath
+colorspacious
+colour-checker-detection
+colour-hdri
+colour-hdri[plotting]
+colour-science
+colour-science
+colour-science[plotting]
+jupyter
+matplotlib
+numpy
+openexr
+Pillow
+scipy
