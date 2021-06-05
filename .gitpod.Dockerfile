@@ -43,7 +43,7 @@ run sudo curl -L -o /ocio.zip https://github.com/colour-science/OpenColorIO-Conf
     sudo unzip /ocio.zip -d /ocio &&\
     sudo rm -f /ocio.zip
 
-RUN pip install --upgrade pip
+RUN /usr/bin/pip3 install --upgrade pip
 
 COPY gitpod/.jupyter /home/gitpod/.jupyter
 
