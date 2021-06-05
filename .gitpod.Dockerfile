@@ -45,6 +45,8 @@ run sudo curl -L -o /ocio.zip https://github.com/colour-science/OpenColorIO-Conf
 
 RUN pip install --upgrade pip
 
+COPY gitpod/.jupyter /home/gitpod/.jupyter
+
 # gitpod Setup
 USER gitpod
 WORKDIR /home/gitpod
