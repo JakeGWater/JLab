@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker run --name jlab --rm -p 8888:8888 -v "$(pwd)/jupyter:/jupyter" jlab
+docker run --name jlab --rm -p 8888:8888 -v "$(pwd)/jupyter:/jupyter" jakegwater/jlab

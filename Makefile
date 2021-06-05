@@ -2,7 +2,7 @@
 
 .phony: build help
 
-NAME=jlab
+NAME=jakegwater/jlab
 OCIOZIP=cache/ocio
 OCIOCONFIG=cache/ocio/OpenColorIO-Config-ACES-1.2/aces_1.2/config.ocio
 

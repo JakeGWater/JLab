@@ -14,9 +14,43 @@ This includes but is not limited to:
 
 ## Architecture
 
-We maintain a Docker image with a large toolset of useful programs.
-You can access the image however you like,
-but we assume most people will use the included Jupyter notebook server.
+We maintain a Docker image with a large toolset of useful programs, including:
+
+1. OpenColorIO
+1. OpenImageIO
+1. OpenEXR
+1. ffmpeg
+1. OpenCV
+1. Python:
+	1. numpy
+	1. scipy
+	1. colour-science
+	1. openexr
+
+## Goals
+
+We want the following to be *easy* for an end-user to use:
+
+### Image Analysis
+
+- [ ] vectorscope, histogram, parade
+- [ ] false color
+- [ ] color checker detection and registration
+
+### Tmage Generation
+
+- [ ] test patterns such as BT.2111
+- [ ] color checkers
+- [ ] save images with embedded ICC profiles
+
+### Image Transforms
+
+Precise control over:
+
+- [ ] color primaries, white-point, transform function
+- [ ] bit-depth
+- [ ] color Channels e.g. (RGB, YCbCr)
+- [ ] chroma Sub-Sampling (e.g. 4:4:4 vs. 4:2:0)
 
 ## Local Install
 
